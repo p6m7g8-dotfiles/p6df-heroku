@@ -83,13 +83,9 @@ p6df::modules::heroku::langs() {
   heroku plugins:install heroku-connect-plugin
   heroku plugins:install heroku-dyno-types
   heroku plugins:install heroku-kafka
-  heroku plugins:install heroku-manual-deploy
   heroku plugins:install heroku-pg-extras
   heroku plugins:install heroku-postgresql
-  heroku plugins:install heroku-production-check
-  heroku plugins:install heroku-redis
   heroku plugins:install heroku-slugs
-  heroku plugins:install heroku-sticky-releases
 
   p6_return_void
 }
