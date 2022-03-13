@@ -8,6 +8,7 @@
 p6df::modules::heroku::deps() {
   ModuleDeps=(
     p6m7g8/p6df-js
+    ohmyzsh/ohmyzsh:plugins/heroku
   )
 
   p6_return_void
