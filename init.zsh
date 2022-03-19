@@ -7,7 +7,7 @@
 ######################################################################
 p6df::modules::heroku::deps() {
   ModuleDeps=(
-    p6m7g8/p6df-js
+    p6m7g8-dotfiles/p6df-js
     ohmyzsh/ohmyzsh:plugins/heroku
   )
 
