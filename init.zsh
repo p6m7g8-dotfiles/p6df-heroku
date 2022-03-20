@@ -60,18 +60,6 @@ p6df::modules::heroku::external::brew() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::home::symlink()
-#
-#>
-######################################################################
-p6df::modules::heroku::home::symlink() {
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
 # Function: p6df::modules::heroku::langs()
 #
 #>
