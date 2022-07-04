@@ -84,13 +84,38 @@ p6df::modules::heroku::langs() {
 #
 # Function: p6df::modules::heroku::init()
 #
-#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH
 #>
 ######################################################################
 p6df::modules::heroku::init() {
 
-    HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup 
-    test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+  p6df::modules::heroku::completions::init
+  p6df::modules::heroku::prompt::init 
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::prompt::init()
+#
+#>
+######################################################################
+p6df::modules::heroku::prompt::init() {
+
+  p6df::core::prompt::line::add "p6df::modules::heroku::prompt::line"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::completions::init()
+#
+#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH
+#>
+######################################################################
+p6df::modules::heroku::completions::init() {
+
+  HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup 
+  test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 }
 
 ######################################################################
@@ -98,6 +123,7 @@ p6df::modules::heroku::init() {
 #
 # Function: p6df::modules::heroku::prompt::line()
 #
+#  Depends:	 p6_string
 #>
 ######################################################################
 p6df::modules::heroku::prompt::line() {
