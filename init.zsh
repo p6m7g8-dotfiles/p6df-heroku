@@ -10,8 +10,6 @@ p6df::modules::heroku::deps() {
     p6m7g8-dotfiles/p6df-js
     ohmyzsh/ohmyzsh:plugins/heroku
   )
-
-  p6_return_void
 }
 
 ######################################################################
@@ -26,18 +24,6 @@ p6df::modules::heroku::vscodes() {
   code --install-extension ivangabriele.vscode-heroku
   code --install-extension JustBrenny.hero-heroku
   code --install-extension pkosta2005.heroku-command
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::external::yum()
-#
-#>
-######################################################################
-p6df::modules::heroku::external::yum() {
 
   p6_return_void
 }
@@ -89,7 +75,9 @@ p6df::modules::heroku::langs() {
 p6df::modules::heroku::init() {
 
   p6df::modules::heroku::completions::init
-  p6df::modules::heroku::prompt::init 
+  p6df::modules::heroku::prompt::init
+
+  p6_return_void
 }
 
 ######################################################################
@@ -114,8 +102,8 @@ p6df::modules::heroku::prompt::init() {
 ######################################################################
 p6df::modules::heroku::completions::init() {
 
-  HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup 
-  test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+  HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
+  p6_file_load "HEROKU_AC_ZSH_SETUP_PATH"
 }
 
 ######################################################################
@@ -123,7 +111,6 @@ p6df::modules::heroku::completions::init() {
 #
 # Function: p6df::modules::heroku::prompt::line()
 #
-#  Depends:	 p6_string
 #>
 ######################################################################
 p6df::modules::heroku::prompt::line() {
@@ -136,15 +123,14 @@ p6df::modules::heroku::prompt::line() {
 #
 # Function: p6_heroku_prompt_info()
 #
-#  Depends:	 p6_string
 #>
 ######################################################################
 p6_heroku_prompt_info() {
 
   local str
-  str=$(awk '/login/ { print $2 }' < ~/.netrc | tail -1)
+  str=$(awk '/login/ { print $2 }' <~/.netrc | tail -1)
   if ! p6_string_blank "$str"; then
-    str="heroku:\t  $str"
+    str="heroku:\t\t  $str"
   fi
 
   p6_return "$str"
