@@ -103,7 +103,7 @@ p6df::modules::heroku::prompt::init() {
 p6df::modules::heroku::completions::init() {
 
   HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
-  p6_file_load "HEROKU_AC_ZSH_SETUP_PATH"
+  p6_file_load "$HEROKU_AC_ZSH_SETUP_PATH"
 }
 
 ######################################################################
