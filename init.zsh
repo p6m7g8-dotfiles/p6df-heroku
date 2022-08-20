@@ -69,33 +69,6 @@ p6df::modules::heroku::langs() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::init()
-#
-#>
-######################################################################
-p6df::modules::heroku::init() {
-
-  p6df::modules::heroku::completions::init
-  p6df::modules::heroku::prompt::init
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::prompt::init()
-#
-#>
-######################################################################
-p6df::modules::heroku::prompt::init() {
-
-  p6df::core::prompt::line::add "p6df::modules::heroku::prompt::line"
-}
-
-######################################################################
-#<
-#
 # Function: p6df::modules::heroku::completions::init()
 #
 #  Environment:	 HEROKU_AC_ZSH_SETUP_PATH
@@ -105,6 +78,8 @@ p6df::modules::heroku::completions::init() {
 
   HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
   p6_file_load "$HEROKU_AC_ZSH_SETUP_PATH"
+
+  p6_return_void
 }
 
 ######################################################################
@@ -115,18 +90,6 @@ p6df::modules::heroku::completions::init() {
 #>
 ######################################################################
 p6df::modules::heroku::prompt::line() {
-
-  p6_heroku_prompt_info
-}
-
-######################################################################
-#<
-#
-# Function: p6_heroku_prompt_info()
-#
-#>
-######################################################################
-p6_heroku_prompt_info() {
 
   local str
   str=$(awk '/login/ { print $2 }' <~/.netrc | tail -1)

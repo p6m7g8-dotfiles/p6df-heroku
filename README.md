@@ -44,14 +44,11 @@
 
 #### p6df-heroku/init.zsh:
 
-- p6_heroku_prompt_info()
 - p6df::modules::heroku::completions::init()
 - p6df::modules::heroku::deps()
 - p6df::modules::heroku::external::brew()
-- p6df::modules::heroku::external::yum()
 - p6df::modules::heroku::init()
 - p6df::modules::heroku::langs()
-- p6df::modules::heroku::prompt::init()
 - p6df::modules::heroku::prompt::line()
 - p6df::modules::heroku::vscodes()
 
