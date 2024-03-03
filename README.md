@@ -47,7 +47,6 @@
 - p6df::modules::heroku::completions::init()
 - p6df::modules::heroku::deps()
 - p6df::modules::heroku::external::brew()
-- p6df::modules::heroku::init()
 - p6df::modules::heroku::langs()
 - p6df::modules::heroku::prompt::line()
 - p6df::modules::heroku::vscodes()
