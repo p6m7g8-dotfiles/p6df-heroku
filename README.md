@@ -44,11 +44,15 @@
 
 #### p6df-heroku/init.zsh:
 
+- p6_heroku_cmd(...)
+- p6df::modules::heroku::app::set(app)
 - p6df::modules::heroku::completions::init()
 - p6df::modules::heroku::deps()
 - p6df::modules::heroku::external::brew()
 - p6df::modules::heroku::langs()
 - p6df::modules::heroku::prompt::line()
+- p6df::modules::heroku::psql()
+- p6df::modules::heroku::rails::console()
 - p6df::modules::heroku::vscodes()
 
 

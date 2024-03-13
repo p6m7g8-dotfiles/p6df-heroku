@@ -87,6 +87,7 @@ p6df::modules::heroku::completions::init() {
 #
 # Function: p6df::modules::heroku::prompt::line()
 #
+#  Environment:	 APP P6_DFZ_HEROKU_APP
 #>
 ######################################################################
 p6df::modules::heroku::prompt::line() {
@@ -97,5 +98,73 @@ p6df::modules::heroku::prompt::line() {
     str="heroku:\t\t  $str"
   fi
 
+  if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
+    str="$str APP=$P6_DFZ_HEROKU_APP"
+  fi
+
   p6_return "$str"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::app::set(app)
+#
+#  Args:
+#	app -
+#
+#  Environment:	 P6_DFZ_HEROKU_APP
+#>
+######################################################################
+p6df::modules::heroku::app::set() {
+  local app="$1"
+
+  p6_env_export "P6_DFZ_HEROKU_APP" "$app"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6_heroku_cmd(...)
+#
+#  Args:
+#	... - 
+#
+#  Environment:	 P6_DFZ_HEROKU_APP
+#>
+######################################################################
+p6_heroku_cmd() {
+  shift 0
+
+  heroku "$@" --app "$P6_DFZ_HEROKU_APP"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::rails::console()
+#
+#>
+######################################################################
+p6df::modules::heroku::rails::console() {
+
+  p6_heroku_cmd run rails console
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::psql()
+#
+#>
+######################################################################
+p6df::modules::heroku::psql() {
+
+  p6_heroku_cmd psql
+
+  p6_return_void
 }
