@@ -110,10 +110,9 @@ p6df::modules::heroku::prompt::line() {
   str=$(awk '/login/ { print $2 }' <~/.netrc | tail -1)
   if ! p6_string_blank "$str"; then
     str="heroku:\t\t  $str"
-  fi
-
-  if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
-    str="$str APP=$P6_DFZ_HEROKU_APP"
+    if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
+      str="$str APP=$P6_DFZ_HEROKU_APP"
+    fi
   fi
 
   p6_return "$str"
