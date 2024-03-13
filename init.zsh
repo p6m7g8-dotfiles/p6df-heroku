@@ -69,6 +69,20 @@ p6df::modules::heroku::langs() {
 ######################################################################
 #<
 #
+# Function: p6df::modules::heroku::aliases::init()
+#
+#>
+######################################################################
+p6df::modules::heroku::aliases::init() {
+
+  alias heroku="p6_heroku_cmd"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
 # Function: p6df::modules::heroku::completions::init()
 #
 #  Environment:	 HEROKU_AC_ZSH_SETUP_PATH
@@ -165,6 +179,21 @@ p6df::modules::heroku::rails::console() {
 p6df::modules::heroku::psql() {
 
   p6_heroku_cmd psql
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::config::envs()
+#
+#  Environment:	 BEGIN
+#>
+######################################################################
+p6df::modules::heroku::config::envs() {
+
+  p6_heroku_cmd config -s |grep -v BEGIN
 
   p6_return_void
 }

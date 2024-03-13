@@ -45,8 +45,10 @@
 #### p6df-heroku/init.zsh:
 
 - p6_heroku_cmd(...)
+- p6df::modules::heroku::aliases::init()
 - p6df::modules::heroku::app::set(app)
 - p6df::modules::heroku::completions::init()
+- p6df::modules::heroku::config::envs()
 - p6df::modules::heroku::deps()
 - p6df::modules::heroku::external::brew()
 - p6df::modules::heroku::langs()
