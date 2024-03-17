@@ -44,7 +44,7 @@
 
 #### p6df-heroku/init.zsh:
 
-- p6_heroku_cmd(...)
+- p6df::modules::heroku::cmd(...)
 - p6df::modules::heroku::aliases::init()
 - p6df::modules::heroku::app::set(app)
 - p6df::modules::heroku::completions::init()

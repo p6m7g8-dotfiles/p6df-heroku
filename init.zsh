@@ -75,7 +75,7 @@ p6df::modules::heroku::langs() {
 ######################################################################
 p6df::modules::heroku::aliases::init() {
 
-  alias heroku="p6_heroku_cmd"
+  alias heroku="p6df::modules::heroku::cmd"
 
   p6_return_void
 }
@@ -107,11 +107,13 @@ p6df::modules::heroku::completions::init() {
 p6df::modules::heroku::prompt::line() {
 
   local str
-  str=$(awk '/login/ { print $2 }' <~/.netrc | tail -1)
-  if ! p6_string_blank "$str"; then
-    str="heroku:\t\t  $str"
-    if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
-      str="$str APP=$P6_DFZ_HEROKU_APP"
+  if p6_file_exists "$HOME/.netrc"; then
+    str=$(awk '/login/ { print $2 }' <~/.netrc | tail -1)
+    if ! p6_string_blank "$str"; then
+      str="heroku:\t\t  $str"
+      if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
+        str="$str APP=$P6_DFZ_HEROKU_APP"
+      fi
     fi
   fi
 
@@ -140,7 +142,7 @@ p6df::modules::heroku::app::set() {
 ######################################################################
 #<
 #
-# Function: p6_heroku_cmd(...)
+# Function: p6df::modules::heroku::cmd(...)
 #
 #  Args:
 #	... - 
@@ -148,7 +150,7 @@ p6df::modules::heroku::app::set() {
 #  Environment:	 P6_DFZ_HEROKU_APP
 #>
 ######################################################################
-p6_heroku_cmd() {
+p6df::modules::heroku::cmd() {
   shift 0
 
   heroku "$@" --app "$P6_DFZ_HEROKU_APP"
@@ -163,7 +165,7 @@ p6_heroku_cmd() {
 ######################################################################
 p6df::modules::heroku::rails::console() {
 
-  p6_heroku_cmd run rails console
+  p6df::modules::heroku::cmd run rails console
 
   p6_return_void
 }
@@ -177,7 +179,7 @@ p6df::modules::heroku::rails::console() {
 ######################################################################
 p6df::modules::heroku::psql() {
 
-  p6_heroku_cmd psql
+  p6df::modules::heroku::cmd psql
 
   p6_return_void
 }
@@ -192,7 +194,7 @@ p6df::modules::heroku::psql() {
 ######################################################################
 p6df::modules::heroku::config::envs() {
 
-  p6_heroku_cmd config -s |grep -v BEGIN
+  p6df::modules::heroku::cmd config -s |grep -v BEGIN
 
   p6_return_void
 }
