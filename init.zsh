@@ -39,7 +39,7 @@ p6df::modules::heroku::vscodes() {
 p6df::modules::heroku::external::brew() {
 
   brew tap heroku/brew
-  brew install heroku
+  p6df::modules::homebrew::cli::brew::install heroku
 
   p6_return_void
 }
@@ -69,13 +69,39 @@ p6df::modules::heroku::langs() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::aliases::init()
+# Function: p6df::modules::heroku::init(_module, dir)
+#
+#  Args:
+#	_module -
+#	dir -
+#
+#>
+######################################################################
+p6df::modules::heroku::init() {
+  local _module="$1"
+  local dir="$2"
+
+  p6_bootstrap "$dir"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::aliases::init(_module, dir)
+#
+#  Args:
+#	_module -
+#	dir -
 #
 #>
 ######################################################################
 p6df::modules::heroku::aliases::init() {
+  local _module="$1"
+  local dir="$2"
 
-  alias heroku="p6df::modules::heroku::cmd"
+  p6_alias "heroku" "p6df::modules::heroku::cmd"
 
   p6_return_void
 }
@@ -101,7 +127,7 @@ p6df::modules::heroku::completions::init() {
 #
 # Function: p6df::modules::heroku::prompt::line()
 #
-#  Environment:	 APP P6_DFZ_HEROKU_APP
+#  Environment:	 APP HOME P6_DFZ_HEROKU_APP
 #>
 ######################################################################
 p6df::modules::heroku::prompt::line() {
@@ -118,83 +144,4 @@ p6df::modules::heroku::prompt::line() {
   fi
 
   p6_return "$str"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::app::set(app)
-#
-#  Args:
-#	app -
-#
-#  Environment:	 P6_DFZ_HEROKU_APP
-#>
-######################################################################
-p6df::modules::heroku::app::set() {
-  local app="$1"
-
-  p6_env_export "P6_DFZ_HEROKU_APP" "$app"
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::cmd(...)
-#
-#  Args:
-#	... - 
-#
-#  Environment:	 P6_DFZ_HEROKU_APP
-#>
-######################################################################
-p6df::modules::heroku::cmd() {
-  shift 0
-
-  heroku "$@" --app "$P6_DFZ_HEROKU_APP"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::rails::console()
-#
-#>
-######################################################################
-p6df::modules::heroku::rails::console() {
-
-  p6df::modules::heroku::cmd run rails console
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::psql()
-#
-#>
-######################################################################
-p6df::modules::heroku::psql() {
-
-  p6df::modules::heroku::cmd psql
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::config::envs()
-#
-#  Environment:	 BEGIN
-#>
-######################################################################
-p6df::modules::heroku::config::envs() {
-
-  p6df::modules::heroku::cmd config -s |grep -v BEGIN
-
-  p6_return_void
 }

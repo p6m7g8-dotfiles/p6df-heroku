@@ -10,8 +10,7 @@
   - [Summary](#summary)
   - [Contributing](#contributing)
   - [Code of Conduct](#code-of-conduct)
-  - [Changes](#changes)
-    - [Usage](#usage)
+  - [Usage](#usage)
   - [Author](#author)
 
 ### Badges
@@ -34,31 +33,64 @@
 
 - [Code of Conduct](https://github.com/p6m7g8/.github/blob/master/CODE_OF_CONDUCT.md)
 
-## Changes
-
-- [Change Log](CHANGELOG.md)
-
 ## Usage
+
+
+### Aliases
+
+- heroku -> p6df::modules::heroku::cmd
+
+### Functions
 
 ### p6df-heroku:
 
 #### p6df-heroku/init.zsh:
 
-- p6df::modules::heroku::cmd(...)
-- p6df::modules::heroku::aliases::init()
-- p6df::modules::heroku::app::set(app)
+- p6df::modules::heroku::aliases::init(_module, dir)
 - p6df::modules::heroku::completions::init()
-- p6df::modules::heroku::config::envs()
 - p6df::modules::heroku::deps()
 - p6df::modules::heroku::external::brew()
+- p6df::modules::heroku::init(_module, dir)
 - p6df::modules::heroku::langs()
 - p6df::modules::heroku::prompt::line()
-- p6df::modules::heroku::psql()
-- p6df::modules::heroku::rails::console()
 - p6df::modules::heroku::vscodes()
 
 
+### p6df-heroku/lib:
 
+#### p6df-heroku/lib/app.sh:
+
+- p6df::modules::heroku::app::set(app)
+
+#### p6df-heroku/lib/cmd.sh:
+
+- p6df::modules::heroku::cmd(...)
+
+#### p6df-heroku/lib/config.sh:
+
+- p6df::modules::heroku::config::envs()
+
+#### p6df-heroku/lib/psql.sh:
+
+- p6df::modules::heroku::psql()
+
+#### p6df-heroku/lib/rails.sh:
+
+- p6df::modules::heroku::rails::console()
+
+
+
+## Hier
+```text
+.
+├── app.sh
+├── cmd.sh
+├── config.sh
+├── psql.sh
+└── rails.sh
+
+1 directory, 5 files
+```
 ## Author
 
 Philip M . Gollucci <pgollucci@p6m7g8.com>
