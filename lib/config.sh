@@ -4,7 +4,6 @@
 #
 # Function: p6df::modules::heroku::config::envs()
 #
-#  Environment:	 BEGIN
 #>
 ######################################################################
 p6df::modules::heroku::config::envs() {
