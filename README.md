@@ -5,8 +5,6 @@
 ## Badges
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges//p6df-heroku/&style=flat)](https://mergify.io)
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](<https://gitpod.io/#https://github.com//p6df-heroku>)
 
 ## Summary
 
@@ -35,7 +33,7 @@
 - p6df::modules::heroku::external::brew()
 - p6df::modules::heroku::init(_module, dir)
 - p6df::modules::heroku::langs()
-- p6df::modules::heroku::prompt::line()
+- p6df::modules::heroku::prompt::mod()
 - p6df::modules::heroku::vscodes()
 
 ## p6df-heroku/lib
