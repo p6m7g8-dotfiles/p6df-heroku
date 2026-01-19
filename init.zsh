@@ -111,7 +111,7 @@ p6df::modules::heroku::aliases::init() {
 #
 # Function: p6df::modules::heroku::completions::init()
 #
-#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH
+#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH HOME
 #>
 ######################################################################
 p6df::modules::heroku::completions::init() {
@@ -127,7 +127,7 @@ p6df::modules::heroku::completions::init() {
 #
 # Function: p6df::modules::heroku::prompt::mod()
 #
-#  Environment:	 APP HOME P6_DFZ_HEROKU_APP
+#  Environment:	 HOME P6_DFZ_HEROKU_APP
 #>
 ######################################################################
 p6df::modules::heroku::prompt::mod() {
