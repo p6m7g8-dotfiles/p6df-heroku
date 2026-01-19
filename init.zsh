@@ -125,12 +125,12 @@ p6df::modules::heroku::completions::init() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::prompt::line()
+# Function: p6df::modules::heroku::prompt::mod()
 #
 #  Environment:	 APP HOME P6_DFZ_HEROKU_APP
 #>
 ######################################################################
-p6df::modules::heroku::prompt::line() {
+p6df::modules::heroku::prompt::mod() {
 
   local str
   if p6_file_exists "$HOME/.netrc"; then
