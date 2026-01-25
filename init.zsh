@@ -39,7 +39,7 @@ p6df::modules::heroku::vscodes() {
 p6df::modules::heroku::external::brew() {
 
   brew tap heroku/brew
-  p6df::modules::homebrew::cli::brew::install heroku
+  p6df::core::homebrew::cli::brew::install heroku
 
   p6_return_void
 }
