@@ -134,7 +134,7 @@ p6df::modules::heroku::prompt::mod() {
 
   local str
   if p6_file_exists "$HOME/.netrc"; then
-    str=$(awk '/login/ { print $2 }' <~/.netrc | tail -1)
+    str=$(p6_file_display "$HOME/.netrc" | p6_filter_row_select "login" | p6_filter_column_pluck 2 | p6_filter_row_last 1)
     if ! p6_string_blank "$str"; then
       str="heroku:\t\t  $str"
       if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
