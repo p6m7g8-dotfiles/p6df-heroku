@@ -22,9 +22,9 @@ p6df::modules::heroku::deps() {
 ######################################################################
 p6df::modules::heroku::vscodes() {
 
-  code --install-extension ivangabriele.vscode-heroku
-  code --install-extension JustBrenny.hero-heroku
-  code --install-extension pkosta2005.heroku-command
+  p6df::modules::vscode::extension::install ivangabriele.vscode-heroku
+  p6df::modules::vscode::extension::install JustBrenny.hero-heroku
+  p6df::modules::vscode::extension::install pkosta2005.heroku-command
 
   p6_return_void
 }
