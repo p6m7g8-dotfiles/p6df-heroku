@@ -135,9 +135,9 @@ p6df::modules::heroku::prompt::mod() {
   local str
   if p6_file_exists "$HOME/.netrc"; then
     str=$(p6_file_display "$HOME/.netrc" | p6_filter_row_select "login" | p6_filter_column_pluck 2 | p6_filter_row_last 1)
-    if ! p6_string_blank "$str"; then
+    if p6_string_blank_NOT "$str"; then
       str="heroku:\t\t  $str"
-      if ! p6_string_blank "$P6_DFZ_HEROKU_APP"; then
+      if p6_string_blank_NOT "$P6_DFZ_HEROKU_APP"; then
         str="$str APP=$P6_DFZ_HEROKU_APP"
       fi
     fi
