@@ -41,10 +41,16 @@ TODO: Add a short summary of this module.
 ##### p6df-heroku/init.zsh
 
 - `p6df::modules::heroku::aliases::init(_module, dir)`
+  - Args:
+    - _module - 
+    - dir - 
 - `p6df::modules::heroku::completions::init()`
 - `p6df::modules::heroku::deps()`
 - `p6df::modules::heroku::external::brew()`
 - `p6df::modules::heroku::init(_module, dir)`
+  - Args:
+    - _module - 
+    - dir - 
 - `p6df::modules::heroku::langs()`
 - `p6df::modules::heroku::prompt::mod()`
 - `p6df::modules::heroku::vscodes()`
@@ -54,10 +60,14 @@ TODO: Add a short summary of this module.
 ##### p6df-heroku/lib/app.sh
 
 - `p6df::modules::heroku::app::set(app)`
+  - Args:
+    - app - 
 
 ##### p6df-heroku/lib/cmd.sh
 
 - `p6df::modules::heroku::cmd(...)`
+  - Args:
+    - ... - 
 
 ##### p6df-heroku/lib/config.sh
 
