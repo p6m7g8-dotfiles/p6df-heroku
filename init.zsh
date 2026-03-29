@@ -32,11 +32,11 @@ p6df::modules::heroku::vscodes() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::external::brew()
+# Function: p6df::modules::heroku::external::brews()
 #
 #>
 ######################################################################
-p6df::modules::heroku::external::brew() {
+p6df::modules::heroku::external::brews() {
 
   p6df::core::homebrew::cmd::brew tap heroku/brew
   p6df::core::homebrew::cli::brew::install heroku
