@@ -69,26 +69,6 @@ p6df::modules::heroku::langs() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::init(_module, dir)
-#
-#  Args:
-#	_module -
-#	dir -
-#
-#>
-######################################################################
-p6df::modules::heroku::init() {
-  local _module="$1"
-  local dir="$2"
-
-  p6_bootstrap "$dir"
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
 # Function: p6df::modules::heroku::aliases::init(_module, dir)
 #
 #  Args:
@@ -116,6 +96,8 @@ p6df::modules::heroku::aliases::init() {
 ######################################################################
 p6df::modules::heroku::completions::init() {
 
+  local _module="$1"
+  local _dir="$2"
   HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
   p6_file_load "$HEROKU_AC_ZSH_SETUP_PATH"
 
@@ -125,18 +107,18 @@ p6df::modules::heroku::completions::init() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::prompt::mod()
+# Function: p6df::modules::heroku::prompt::context()
 #
 #  Environment:	 HOME P6_DFZ_HEROKU_APP
 #>
 ######################################################################
-p6df::modules::heroku::prompt::mod() {
+p6df::modules::heroku::prompt::context() {
 
   local str
   if p6_file_exists "$HOME/.netrc"; then
     str=$(p6_file_display "$HOME/.netrc" | p6_filter_row_select "login" | p6_filter_column_pluck 2 | p6_filter_row_last 1)
     if p6_string_blank_NOT "$str"; then
-      str="heroku:\t\t  $str"
+      str="$(p6_string_space_pad "heroku:" 16)$str"
       if p6_string_blank_NOT "$P6_DFZ_HEROKU_APP"; then
         str="$str APP=$P6_DFZ_HEROKU_APP"
       fi
