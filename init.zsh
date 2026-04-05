@@ -16,15 +16,37 @@ p6df::modules::heroku::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::vscodes()
+# Function: p6df::modules::heroku::completions::init()
+#
+#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH HOME
+#>
+######################################################################
+p6df::modules::heroku::completions::init() {
+
+  local _module="$1"
+  local _dir="$2"
+  HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
+  p6_file_load "$HEROKU_AC_ZSH_SETUP_PATH"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::aliases::init(_module, dir)
+#
+#  Args:
+#	_module -
+#	dir -
 #
 #>
 ######################################################################
-p6df::modules::heroku::vscodes() {
+p6df::modules::heroku::aliases::init() {
+  local _module="$1"
+  local dir="$2"
 
-  p6df::modules::vscode::extension::install ivangabriele.vscode-heroku
-  p6df::modules::vscode::extension::install JustBrenny.hero-heroku
-  p6df::modules::vscode::extension::install pkosta2005.heroku-command
+  p6_alias "heroku" "p6df::modules::heroku::cmd"
 
   p6_return_void
 }
@@ -69,37 +91,15 @@ p6df::modules::heroku::langs() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::aliases::init(_module, dir)
-#
-#  Args:
-#	_module -
-#	dir -
+# Function: p6df::modules::heroku::vscodes()
 #
 #>
 ######################################################################
-p6df::modules::heroku::aliases::init() {
-  local _module="$1"
-  local dir="$2"
+p6df::modules::heroku::vscodes() {
 
-  p6_alias "heroku" "p6df::modules::heroku::cmd"
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::completions::init()
-#
-#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH HOME
-#>
-######################################################################
-p6df::modules::heroku::completions::init() {
-
-  local _module="$1"
-  local _dir="$2"
-  HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
-  p6_file_load "$HEROKU_AC_ZSH_SETUP_PATH"
+  p6df::modules::vscode::extension::install ivangabriele.vscode-heroku
+  p6df::modules::vscode::extension::install JustBrenny.hero-heroku
+  p6df::modules::vscode::extension::install pkosta2005.heroku-command
 
   p6_return_void
 }
