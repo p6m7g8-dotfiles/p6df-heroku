@@ -1,5 +1,11 @@
 # shellcheck shell=bash
 ######################################################################
+#<
+#
+# Function: p6df::modules::heroku::deps()
+#
+#>
+######################################################################
 p6df::modules::heroku::deps() {
   ModuleDeps=(
     p6m7g8-dotfiles/p6df-js
@@ -7,6 +13,13 @@ p6df::modules::heroku::deps() {
   )
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::completions::init()
+#
+#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH HOME
+#>
 ######################################################################
 p6df::modules::heroku::completions::init() {
 
@@ -19,6 +32,16 @@ p6df::modules::heroku::completions::init() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::heroku::aliases::init(_module, dir)
+#
+#  Args:
+#	_module -
+#	dir -
+#
+#>
+######################################################################
 p6df::modules::heroku::aliases::init() {
   local _module="$1"
   local dir="$2"
@@ -29,6 +52,12 @@ p6df::modules::heroku::aliases::init() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::heroku::external::brews()
+#
+#>
+######################################################################
 p6df::modules::heroku::external::brews() {
 
   p6df::core::homebrew::cmd::brew tap heroku/brew
@@ -37,6 +66,12 @@ p6df::modules::heroku::external::brews() {
   p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::heroku::langs()
+#
+#>
 ######################################################################
 p6df::modules::heroku::langs() {
 
@@ -54,6 +89,12 @@ p6df::modules::heroku::langs() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::heroku::vscodes()
+#
+#>
+######################################################################
 p6df::modules::heroku::vscodes() {
 
   p6df::modules::vscode::extension::install ivangabriele.vscode-heroku
@@ -63,47 +104,6 @@ p6df::modules::heroku::vscodes() {
   p6_return_void
 }
 
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::deps()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::vscodes()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::external::brews()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::langs()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::aliases::init(_module, dir)
-#
-#  Args:
-#	_module -
-#	dir -
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::heroku::completions::init()
-#
-#  Environment:	 HEROKU_AC_ZSH_SETUP_PATH HOME
-#>
 ######################################################################
 #<
 #
