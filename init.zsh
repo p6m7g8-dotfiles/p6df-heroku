@@ -16,7 +16,11 @@ p6df::modules::heroku::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::heroku::completions::init()
+# Function: p6df::modules::heroku::completions::init(_module, _dir)
+#
+#  Args:
+#	_module -
+#	_dir -
 #
 #  Environment:	 HEROKU_AC_ZSH_SETUP_PATH HOME
 #>
