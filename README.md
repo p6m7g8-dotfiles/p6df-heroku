@@ -42,17 +42,16 @@ TODO: Add a short summary of this module.
 
 - `p6df::modules::heroku::aliases::init(_module, dir)`
   - Args:
-    - _module -
-    - dir -
-- `p6df::modules::heroku::completions::init()`
-- `p6df::modules::heroku::deps()`
-- `p6df::modules::heroku::external::brew()`
-- `p6df::modules::heroku::init(_module, dir)`
+    - _module
+    - dir
+- `p6df::modules::heroku::completions::init(_module, _dir)`
   - Args:
-    - _module -
-    - dir -
+    - _module
+    - _dir
+- `p6df::modules::heroku::deps()`
+- `p6df::modules::heroku::external::brews()`
 - `p6df::modules::heroku::langs()`
-- `p6df::modules::heroku::prompt::mod()`
+- `p6df::modules::heroku::prompt::context()`
 - `p6df::modules::heroku::vscodes()`
 
 #### p6df-heroku/lib
@@ -61,13 +60,13 @@ TODO: Add a short summary of this module.
 
 - `p6df::modules::heroku::app::set(app)`
   - Args:
-    - app -
+    - app
 
 ##### p6df-heroku/lib/cmd.sh
 
 - `p6df::modules::heroku::cmd(...)`
   - Args:
-    - ... -
+    - ...
 
 ##### p6df-heroku/lib/config.sh
 
